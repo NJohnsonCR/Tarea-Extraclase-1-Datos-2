@@ -7,6 +7,8 @@
 
 using namespace std;
 
+LinkedList::~LinkedList() {}
+
 /**
  * Method used for adding an element to the end of the list.
  * @param element: Type int object
@@ -23,6 +25,7 @@ void LinkedList::addData(int data) {
     }
     this->len += 1;
     cout << "Added : " << temp->getData() << " to the list on pos: " << len - 1 << "\n";
+    this->printList();
 }
 
 void LinkedList::deleteFirst(){
@@ -35,6 +38,8 @@ void LinkedList::deleteFirst(){
         this->setHead(this->head->getNext());
         aux->setNext(nullptr);
         this->len--;
+        cout << "Deleted first node successfully " << endl;
+        this->printList();
     }
 }
 
@@ -43,7 +48,7 @@ void LinkedList::deleteFirst(){
  */
 void LinkedList::printList() const {
     if (this->head == nullptr) {
-        cout << "The list is empty";
+        cout << "The list is empty" << endl;
     } else {
         Node *tmp = this->head;
         for (int i = 0; i < (this->len - 1); ++i) {

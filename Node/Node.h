@@ -18,6 +18,10 @@ public:
     Node *getNext() const;
 
     void setNext(Node *next);
+
+    void* operator new(size_t newOverload);
+
+    void operator delete(void *memoryAddress);
 };
 
 

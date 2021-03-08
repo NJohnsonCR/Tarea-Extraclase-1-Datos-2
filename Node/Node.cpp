@@ -22,3 +22,11 @@ Node *Node::getNext() const {
 void Node::setNext(Node *next) {
     Node::next = next;
 }
+
+void *Node::operator new(size_t newOverload) {
+    return nullptr;
+}
+
+void Node::operator delete(void *memoryAddress) {
+
+}

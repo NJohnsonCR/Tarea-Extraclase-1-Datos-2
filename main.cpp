@@ -1,17 +1,16 @@
 #include <iostream>
 #include "LinkedList/LinkedList.h"
+#include "Collector/Collector.h"
 
 int main() {
     LinkedList *list = new LinkedList();
-
-    //list->deleteFirst();
+    Collector::initCollector();
     list -> addData(1);
     list -> addData(2);
     list -> addData(3);
     list -> addData(4);
-    list -> printList();
     list->deleteFirst();
-    list -> printList();
+    list->deleteFirst();
 
     return 0;
 }
