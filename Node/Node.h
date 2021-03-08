@@ -7,7 +7,17 @@
 
 
 class Node {
+private:
+    int data;
+    Node *next;
+public:
+    int getData() const;
 
+    void setData(int data);
+
+    Node *getNext() const;
+
+    void setNext(Node *next);
 };
 
 
