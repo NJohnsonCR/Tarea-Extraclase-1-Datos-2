@@ -28,6 +28,8 @@ public:
 
     void addData(int data);
 
+    void deleteFirst();
+
     void printList() const;
 
 };

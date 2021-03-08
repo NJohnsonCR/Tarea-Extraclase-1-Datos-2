@@ -25,20 +25,32 @@ void LinkedList::addData(int data) {
     cout << "Added : " << temp->getData() << " to the list on pos: " << len - 1 << "\n";
 }
 
+void LinkedList::deleteFirst(){
+    Node *aux = this->head;
+
+    if (aux == nullptr){
+        cout << "The list is empty" << endl;
+    }
+    else{
+        this->setHead(this->head->getNext());
+        aux->setNext(nullptr);
+        this->len--;
+    }
+}
+
 /**
  * Method for showing the list on the console.
  */
 void LinkedList::printList() const {
     if (this->head == nullptr) {
-        cout << "[]";
+        cout << "The list is empty";
     } else {
-        cout << "[ ";
         Node *tmp = this->head;
         for (int i = 0; i < (this->len - 1); ++i) {
-            cout << tmp->getData() << ", ";
+            cout << tmp->getData() << " -> ";
             tmp = tmp->getNext();
         }
-        cout << tmp->getData() << " ]";
+        cout << tmp -> getData() << endl;
     }
 }
 
