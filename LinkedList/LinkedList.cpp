@@ -7,6 +7,8 @@
 
 using namespace std;
 
+
+
 LinkedList::~LinkedList() {}
 
 /**
@@ -14,8 +16,8 @@ LinkedList::~LinkedList() {}
  * @param element: Type int object
  */
 void LinkedList::addData(int data) {
-    Node *temp;
-    temp = (new Node());
+    size_t size = 2;
+    Node *temp = new Node();
     temp->setData(data);
     if (this->head == nullptr) {
         this->head = this->tail = temp;
@@ -29,14 +31,15 @@ void LinkedList::addData(int data) {
 }
 
 void LinkedList::deleteFirst(){
-    Node *aux = this->head;
+    Node *tmp = this->head;
 
-    if (aux == nullptr){
+    if (tmp == nullptr){
         cout << "The list is empty" << endl;
     }
     else{
         this->setHead(this->head->getNext());
-        aux->setNext(nullptr);
+        //delete tmp->getNext();
+        tmp->setNext(nullptr);
         this->len--;
         cout << "Deleted first node successfully " << endl;
         this->printList();

@@ -3,6 +3,8 @@
 //
 #include "iostream"
 #include "Node.h"
+#include "../Collector/Collector.h"
+
 
 using namespace std;
 
@@ -23,10 +25,24 @@ void Node::setNext(Node *next) {
     Node::next = next;
 }
 
-void *Node::operator new(size_t newOverload) {
-    return nullptr;
+void* Node::operator new(size_t size) {
+    void* memoryAddress;
+    Collector::getCollectorList()->printCollector();
+    memoryAddress = Collector::getCollectorList()->reuseAddress();
+
+    if (memoryAddress == nullptr){
+        Node *temp = ::new Node();
+        cout << "Node created with a new memory address: " << static_cast<void*>(temp) << endl;
+        return temp;
+    }else{
+        cout << "Node created reusing memory address: " << static_cast<void*>(memoryAddress) << endl;
+        return memoryAddress;
+    }
 }
 
+
+/*
 void Node::operator delete(void *memoryAddress) {
-
+    cout << "Method overloaded" << endl;
 }
+ */

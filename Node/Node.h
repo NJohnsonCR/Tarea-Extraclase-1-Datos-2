@@ -5,6 +5,8 @@
 #ifndef TAREA_EXTRACLASE_1_DATOS_2_NODE_H
 #define TAREA_EXTRACLASE_1_DATOS_2_NODE_H
 
+#include "iostream"
+#include <cstddef>
 
 class Node {
 private:
@@ -19,9 +21,9 @@ public:
 
     void setNext(Node *next);
 
-    void* operator new(size_t newOverload);
+    void* operator new(size_t size);
 
-    void operator delete(void *memoryAddress);
+    //void operator delete(void *memoryAddress);
 };
 
 

@@ -10,19 +10,28 @@
 
 class Collector {
 private:
+    Collector();
     Node* head;
     static Collector *collectorList;
-    Collector();
-public:
-    static void initCollector(){
-        collectorList = new Collector();
-    }
 
+public:
     ~Collector();
+
+    static Collector* getCollectorList(){
+        if (!collectorList)
+            collectorList = new Collector;
+        return collectorList;
+    }
 
     void* reuseAddress();
 
     void recycleAddress(Node* node);
+
+    Node *getHead() const;
+
+    void setHead(Node *head);
+
+    void printCollector();
 
 
 };

@@ -4,13 +4,12 @@
 
 int main() {
     LinkedList *list = new LinkedList();
-    Collector::initCollector();
     list -> addData(1);
     list -> addData(2);
     list -> addData(3);
     list -> addData(4);
-    list->deleteFirst();
-    list->deleteFirst();
+    //list->deleteFirst();
+    //list->deleteFirst();
 
     return 0;
 }
