@@ -41,8 +41,8 @@ void* Node::operator new(size_t size) {
 }
 
 
-/*
 void Node::operator delete(void *memoryAddress) {
-    cout << "Method overloaded" << endl;
+    Collector::getCollectorList()->recycleAddress((Node*) memoryAddress);
+    cout << "\nNode " << static_cast<void*>(memoryAddress) << " eliminated and added to collector " << endl;
 }
- */
+

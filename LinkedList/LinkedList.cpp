@@ -16,7 +16,6 @@ LinkedList::~LinkedList() {}
  * @param element: Type int object
  */
 void LinkedList::addData(int data) {
-    size_t size = 2;
     Node *temp = new Node();
     temp->setData(data);
     if (this->head == nullptr) {
@@ -38,7 +37,7 @@ void LinkedList::deleteFirst(){
     }
     else{
         this->setHead(this->head->getNext());
-        //delete tmp->getNext();
+        delete tmp->getNext();
         tmp->setNext(nullptr);
         this->len--;
         cout << "Deleted first node successfully " << endl;

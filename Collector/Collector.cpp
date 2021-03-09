@@ -7,26 +7,47 @@
 
 using namespace std;
 
+
 Collector* Collector::collectorList = NULL;
+
 
 Collector::Collector() {}
 
 Collector::~Collector() {}
 
+Collector *Collector::getCollectorList() {
+    if (!collectorList)
+        collectorList = new Collector;
+    return collectorList;
+}
+
 void *Collector::reuseAddress() {
-    if (this->head != nullptr){
-        Node* tmp = this->head;
-        this->setHead(this->head->getNext());
-        tmp->setNext(nullptr);
-        return tmp;
-    } else{
+    Node *tmp = this->head;
+
+    if (tmp == nullptr){
         return nullptr;
     }
+    else{
+        this->setHead(this->head->getNext());
+        tmp->setNext(nullptr);
+        this->len--;
+        cout << "Deleted first node of collector list successfully " << endl;
+        this->printCollector();
+        return tmp;
+    }
+
 }
 
 void Collector::recycleAddress(Node *node) {
-    node->setNext(this->getHead());
-    this->setHead(node);
+    if (this->head == nullptr) {
+        this->head = this->tail = node;
+    } else {
+        this->tail->setNext(node);
+        this->tail = node;
+    }
+    this->len += 1;
+    cout << "Added : " << node->getData() << " to the list on pos: " << len - 1 << "\n";
+    this->printCollector();
 
 }
 
@@ -35,16 +56,22 @@ Node *Collector::getHead() const {return head;}
 void Collector::setHead(Node *head) {Collector::head = head;}
 
 void Collector::printCollector() {
-    Node *aux = head;
-    if (this->head == nullptr){
-        cout << "\nCollector no tiene espacios en memoria disponibles\n\n";
-    }else{
-        cout << "\nLas direcciones de memoria presentes en Collector son: " << endl;
-        while(aux!= nullptr) {
-            cout << static_cast<void*>(aux) << "\n";
-            aux = aux->getNext();
+    if (this->head == nullptr) {
+        cout << "The collector does not contain elements" << endl;
+    } else {
+        Node *tmp = this->head;
+        for (int i = 0; i < (this->len - 1); ++i) {
+            cout << tmp->getData() << " -> ";
+            tmp = tmp->getNext();
         }
+        cout << tmp -> getData() << endl;
     }
 }
+
+void Collector::setCollectorList(Collector *collectorList) {Collector::collectorList = collectorList;}
+
+Node *Collector::getTail() const {return tail;}
+
+void Collector::setTail(Node *tail) {Collector::tail = tail;}
 
 

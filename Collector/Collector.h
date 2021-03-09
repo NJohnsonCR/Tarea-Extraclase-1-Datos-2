@@ -11,17 +11,15 @@
 class Collector {
 private:
     Collector();
-    Node* head;
     static Collector *collectorList;
+    Node *head;
+    Node *tail;
+    int len;
 
 public:
     ~Collector();
 
-    static Collector* getCollectorList(){
-        if (!collectorList)
-            collectorList = new Collector;
-        return collectorList;
-    }
+    static Collector* getCollectorList();
 
     void* reuseAddress();
 
@@ -33,6 +31,11 @@ public:
 
     void printCollector();
 
+    static void setCollectorList(Collector *collectorList);
+
+    Node *getTail() const;
+
+    void setTail(Node *tail);
 
 };
 
