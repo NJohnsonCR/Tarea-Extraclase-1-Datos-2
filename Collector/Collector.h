@@ -13,8 +13,7 @@ private:
     Collector();
     static Collector *collectorList;
     Node *head;
-    Node *tail;
-    int len;
+
 
 public:
     ~Collector();
@@ -31,11 +30,6 @@ public:
 
     void printCollector();
 
-    static void setCollectorList(Collector *collectorList);
-
-    Node *getTail() const;
-
-    void setTail(Node *tail);
 
 };
 

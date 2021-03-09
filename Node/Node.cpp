@@ -27,7 +27,7 @@ void Node::setNext(Node *next) {
 
 void* Node::operator new(size_t size) {
     void* memoryAddress;
-    Collector::getCollectorList()->printCollector();
+    //Collector::getCollectorList()->printCollector();
     memoryAddress = Collector::getCollectorList()->reuseAddress();
 
     if (memoryAddress == nullptr){
@@ -43,6 +43,6 @@ void* Node::operator new(size_t size) {
 
 void Node::operator delete(void *memoryAddress) {
     Collector::getCollectorList()->recycleAddress((Node*) memoryAddress);
-    cout << "\nNode " << static_cast<void*>(memoryAddress) << " eliminated and added to collector " << endl;
+    cout << "Node " << static_cast<void*>(memoryAddress) << " eliminated and added to collector " << endl;
 }
 

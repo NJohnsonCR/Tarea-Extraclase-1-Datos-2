@@ -37,12 +37,12 @@ void LinkedList::deleteFirst(){
     }
     else{
         this->setHead(this->head->getNext());
-        delete tmp->getNext();
         tmp->setNext(nullptr);
+        delete tmp;
         this->len--;
         cout << "Deleted first node successfully " << endl;
-        this->printList();
     }
+    this->printList();
 }
 
 /**
@@ -53,11 +53,12 @@ void LinkedList::printList() const {
         cout << "The list is empty" << endl;
     } else {
         Node *tmp = this->head;
+        cout << "[";
         for (int i = 0; i < (this->len - 1); ++i) {
             cout << tmp->getData() << " -> ";
             tmp = tmp->getNext();
         }
-        cout << tmp -> getData() << endl;
+        cout << tmp -> getData() << "]" << endl;
     }
 }
 
