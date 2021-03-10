@@ -14,7 +14,6 @@ private:
     Node *tail;
     int len;
 public:
-    ~LinkedList();
 
     Node *getHead() const;
 

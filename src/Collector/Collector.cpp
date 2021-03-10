@@ -11,17 +11,13 @@ using namespace std;
 Collector* Collector::collectorList = NULL;
 
 /**
- * The constructor for the collector class.
+ * @brief The constructor for the collector class.
  */
 Collector::Collector() {}
 
-/**
- * The deconstructor for the collector class.
- */
-Collector::~Collector() {}
 
 /**
- * Method that creates only one instance of the collector list to manage the memory addresses of the other linked lists.
+ * @brief Method that creates only one instance of the collector list to manage the memory addresses of the other linked lists.
  * @return the Collector instance.
  */
 Collector *Collector::getCollectorList() {
@@ -30,7 +26,7 @@ Collector *Collector::getCollectorList() {
     return collectorList;
 }
 /**
- * Method that reuses a memory address stored in the collector list and deletes it, then assigns it to a node created on the linked list.
+ * @brief Method that reuses a memory address stored in the collector list and deletes it, then assigns it to a node created on the linked list.
  * @return the node pointer it the list is not empty or the null pointer if its empty.
  */
 void *Collector::reuseAddress() {
@@ -46,7 +42,7 @@ void *Collector::reuseAddress() {
 }
 
 /**
- * Method that recycles a memory address created from a node in the linked list and adds it at the end of the collector list.
+ * @brief Method that recycles a memory address created from a node in the linked list and adds it at the end of the collector list.
  * @param node the pointer that gets added to the collector list
  */
 void Collector::recycleAddress(Node *node) {
@@ -60,21 +56,8 @@ void Collector::recycleAddress(Node *node) {
 
 
 }
-
 /**
- * Getter for the head of the collector list.
- * @return returns the head of the list.
- */
-Node *Collector::getHead() const {return head;}
-
-/**
- * Setter for the head of the list.
- * @param head the node pointer
- */
-void Collector::setHead(Node *head) {Collector::head = head;}
-
-/**
- * Method that prints the collector list.
+ * @brief Method that prints the collector list.
  */
 void Collector::printCollector() {
     if (this->head == nullptr) {
@@ -90,21 +73,17 @@ void Collector::printCollector() {
     }
 }
 
-int Collector::getLen() const {
-    return len;
-}
+Node *Collector::getHead() const {return head;}
 
-void Collector::setLen(int len) {
-    Collector::len = len;
-}
+void Collector::setHead(Node *head) {Collector::head = head;}
 
-Node *Collector::getTail() const {
-    return tail;
-}
+int Collector::getLen() const {return len;}
 
-void Collector::setTail(Node *tail) {
-    Collector::tail = tail;
-}
+void Collector::setLen(int len) {Collector::len = len;}
+
+Node *Collector::getTail() const {return tail;}
+
+void Collector::setTail(Node *tail) {Collector::tail = tail;}
 
 
 

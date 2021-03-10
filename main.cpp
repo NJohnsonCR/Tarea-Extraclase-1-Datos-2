@@ -2,10 +2,7 @@
 #include "src/LinkedList/LinkedList.h"
 #include "src/Collector/Collector.h"
 
-/**
- * The main method that executes the other methods.
- * @return
- */
+
 int main() {
     LinkedList *list = new LinkedList();
     list->addData(1);

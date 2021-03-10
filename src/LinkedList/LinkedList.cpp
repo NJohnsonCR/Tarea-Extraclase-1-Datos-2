@@ -7,12 +7,8 @@
 
 using namespace std;
 
-
-
-LinkedList::~LinkedList() {}
-
 /**
- * Method used for adding data at the end of the list.
+ * @brief Method used for adding data at the end of the list.
  * @param data the integer that gets added to the list
  */
 void LinkedList::addData(int data) {
@@ -29,7 +25,7 @@ void LinkedList::addData(int data) {
     this->printList();
 }
 /**
- * Method used for deleting the first node of the list.
+ * @brief Method used for deleting the first node of the list.
  */
 void LinkedList::deleteFirst(){
     Node *tmp = this->head;
@@ -49,7 +45,7 @@ void LinkedList::deleteFirst(){
 }
 
 /**
- * Method used for printing the linked list.
+ * @brief Method used for printing the linked list.
  */
 void LinkedList::printList() const {
     if (this->head == nullptr) {
@@ -64,45 +60,15 @@ void LinkedList::printList() const {
         cout << tmp -> getData() << "] \n\n" ;
     }
 }
-/**
- * Getter for the node head of the linked list.
- * @return the head of the list.
- */
-Node *LinkedList::getHead() const {
-    return head;
-}
-/**
- * Setter for the head of the linked list.
- * @param head
- */
-void LinkedList::setHead(Node *head) {
-    LinkedList::head = head;
-}
-/**
- * Getter for the tail of the list.
- * @return returns the tail of the list.
- */
-Node *LinkedList::getTail() const {
-    return tail;
-}
-/**
- * Setter of the tail of the list.
- * @param tail the node pointer.
- */
-void LinkedList::setTail(Node *tail) {
-    LinkedList::tail = tail;
-}
-/**
- * Getter for the len of the list.
- * @return the length of the linked list.
- */
-int LinkedList::getLen() const {
-    return len;
-}
-/**
- * Setter for the length of the list.
- * @param len an integer
- */
-void LinkedList::setLen(int len) {
-    LinkedList::len = len;
-}
+
+Node *LinkedList::getHead() const {return head;}
+
+void LinkedList::setHead(Node *head) {LinkedList::head = head;}
+
+Node *LinkedList::getTail() const {return tail;}
+
+void LinkedList::setTail(Node *tail) {LinkedList::tail = tail;}
+
+int LinkedList::getLen() const {return len;}
+
+void LinkedList::setLen(int len) {LinkedList::len = len;}

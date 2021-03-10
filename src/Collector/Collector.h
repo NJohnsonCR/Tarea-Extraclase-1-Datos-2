@@ -17,7 +17,6 @@ private:
     int len;
 
 public:
-    ~Collector();
 
     static Collector* getCollectorList();
 
