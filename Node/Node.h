@@ -8,6 +8,7 @@
 #include "iostream"
 #include <cstddef>
 
+
 class Node {
 private:
     int data;
