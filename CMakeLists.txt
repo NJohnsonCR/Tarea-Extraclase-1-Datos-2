@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 SET(CMAKE_CXX_FLAGS_DEBUG "-g")
 
-add_executable(Tarea_Extraclase_1_Datos_2 main.cpp Collector/Collector.cpp Collector/Collector.h Node/Node.cpp Node/Node.h LinkedList/LinkedList.cpp LinkedList/LinkedList.h)
+add_executable(Tarea_Extraclase_1_Datos_2 main.cpp src/Collector/Collector.cpp src/Collector/Collector.h src/Node/Node.cpp src/Node/Node.h src/LinkedList/LinkedList.cpp src/LinkedList/LinkedList.h)

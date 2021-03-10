@@ -1,6 +1,6 @@
 #include <iostream>
-#include "LinkedList/LinkedList.h"
-#include "Collector/Collector.h"
+#include "src/LinkedList/LinkedList.h"
+#include "src/Collector/Collector.h"
 
 /**
  * The main method that executes the other methods.
