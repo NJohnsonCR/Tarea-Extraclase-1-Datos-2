@@ -160,3 +160,4 @@ fabric.properties
 .nfs*
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,c++,clion
+.idea/discord.xml
