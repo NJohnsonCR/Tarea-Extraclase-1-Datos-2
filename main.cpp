@@ -10,8 +10,7 @@ int main() {
     list->addData(3);
     list->deleteFirst();
     list->deleteFirst();
-    list->deleteFirst();
-    list->addData(1);
-    list->addData(2);
+    list->addData(4);
+    list->addData(5);
     return 0;
 }

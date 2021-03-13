@@ -14,7 +14,7 @@ using namespace std;
  * @param size the parameter needed for the overloaded method.
  * @return a void pointer where the memory address is added or a null memory address.
  */
-void* Node::operator new(size_t size) {
+void* Node::operator new(size_t ) {
 
     void* memoryAddress;
     Collector::getCollectorList()->printCollector();

@@ -22,7 +22,7 @@ public:
 
     void setNext(Node *next);
 
-    void* operator new(size_t size);
+    void* operator new(size_t );
 
     void operator delete(void *memoryAddress);
 };
